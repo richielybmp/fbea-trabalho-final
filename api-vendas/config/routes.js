@@ -5,7 +5,7 @@ module.exports = function(server){
     const roteador = express.Router()
     server.use('/api', roteador)
 
-    const vendaService = require('../api/venda/vendaService')
+    const vendaService = require('../api/servicos/vendaService')
     vendaService.register(roteador, '/vendas')
 
     const microservico = server.route('/api/segurosService')
