@@ -5,12 +5,12 @@ O aplicativo consiste em dois microserviços que se comunicam. Cada microserviç
 
 ## Executando o Microseviço - PHP
 	
-##### XAMPP Version 7.2.9 ######
+##### XAMPP ######
 
   + Apache 2.4.34
-  + MariaDB 10.1.35
-  + PHP 7.2.9 (VC15 X86 32bit thread safe) + PEAR
+  + SQLite3
+  + PHP 7.2.9
+  
+##### POSTMAN #####
 
-### Importar estrutura BD
-
-Acessar o phpmyadmin -> importar -> escolher arquivo -> config/apolices.sql -> Executar
+importar o arquivo api-ri.postman_collection.json que contém as Requisições GET/POST.
