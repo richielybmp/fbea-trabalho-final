@@ -7,26 +7,18 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 include_once '../objects/ingresso.php';
 include_once '../config/database.php';
+include_once '../controllers/ingresso_controller.php';
 
 $db = new Database();
+$ingresso_controller = new IngressoController($db);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$dados = json_decode(file_get_contents("php://input"));
-	$ingressos = array();
-	foreach($dados as $dado) {
-		$ingresso = new Ingresso($db);
-		$ingresso->id_sessao = $dado->id_sessao;
-		$ingresso->valor = $dado->valor;
-		$ingresso->assento = $dado->assento;
-		if($ingresso->create()){
-			array_push($ingressos, $ingresso);
-		}
-	}
+	$ingressos = $ingresso_controller->create_all($dados);
 	echo json_encode($ingressos);
 } else if($_SERVER['REQUEST_METHOD'] === 'GET') {
-	$ingresso = new Ingresso($db);
 	if(isset($_GET['sessao']) && !empty($_GET['sessao'])) {
-		echo json_encode($ingresso->find_by_sessao($_GET['sessao']));
+		echo json_encode($ingresso_controller->find_by_sessao($_GET['sessao']));
 	} else {
 		echo '{"mensagem" : "?sessao = x"}';
 	}
