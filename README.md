@@ -15,6 +15,4 @@ O aplicativo consiste em dois microserviços que se comunicam. Cada microserviç
 `npm run dev`
 
 ## Acessando o serviço
-Acesse o endereço `http://localhost:3000/api/vendas`
-
-Acesse o endereço para obter dados de outro microserviço `http://localhost:3000/api/segurosService`
+Acesse o endereço `http://localhost:3000/filmes`

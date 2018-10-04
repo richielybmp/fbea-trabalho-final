@@ -3,7 +3,7 @@ const dbName = 'db_apiFilmes'
 
 mongoose.connect('mongodb://localhost/'+ dbName, { useNewUrlParser: true })
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
