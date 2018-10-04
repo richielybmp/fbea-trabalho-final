@@ -17,10 +17,11 @@ router.get('/', (req, res, next) => {
 });
 
 // GET - Lista todos os filmes existentes no banco de dados.
-router.get('/:id?', (req, res, next) => {
-    FilmeService.obtenhaFilme(req.query.id, (erro, filme) => {
+router.get('/:id', (req, res, next) => {
+    const id = req.params.id;
+    FilmeService.obtenhaFilme(id, (erro, filme) => {
         if (erro) 
-            return res.status(500).send("Ocorreu um problema ao tentar localizar um filme.");
+            return res.status(404).send("Ocorreu um problema ao tentar localizar um filme.");
         res.status(200).send(filme);
     });
 });
@@ -43,8 +44,9 @@ router.post('/', (req, res, next) => {
     })
 });
 
-router.delete('/:id?', (req, res, next) =>{
-    FilmeService.removaFilme(req.query.id, (erro) =>{
+router.delete('/:id', (req, res, next) =>{
+    const id = req.params.id;
+    FilmeService.removaFilme(id, (erro) =>{
         if (erro) 
             return res.status(500).send("Ocorreu um erro ao tentar remover o Filme do banco de dados.");
         res.status(200).send("Filme removido com sucesso!");
