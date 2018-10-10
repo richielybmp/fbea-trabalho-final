@@ -44,7 +44,7 @@ exports.delete = (req, res, next) =>{
     const id = req.params.id;
     FilmeService.removaFilme(id, (erro) =>{
         if (erro)
-            return res.status(500).send("Ocorreu um erro ao tentar remover o Filme do banco de dados.");
+            return res.status(500).send("Ocorreu um erro ao tentar remover o Filme do banco de dados."+erro);
         res.status(200).send("Filme removido com sucesso!");
     })
 }
