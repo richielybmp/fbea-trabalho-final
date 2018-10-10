@@ -1,4 +1,4 @@
-var Filme = require('../model/filme');
+var Filme = require('../src/models/filme');
 
 module.exports = class FilmeService {
     
