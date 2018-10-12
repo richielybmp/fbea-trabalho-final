@@ -2,12 +2,11 @@
 
 var FilmeService = require('../../services/filmeService')
 
-
 // GET - Lista todos os filmes existentes no banco de dados.
 exports.getAll = (req, res, next) => {
     FilmeService.obtenhaFilmes((erro, filmes) => {
         if (erro)
-            return res.status(500).send("Ocorreu um problema ao tentar localizar um filme.");
+            return res.status(500).send("Ocorreu um problema ao tentar localizar um filme." + erro);
         res.status(200).send(filmes);
     });
 };
@@ -17,7 +16,7 @@ exports.find = (req, res, next) => {
     const id = req.params.id;
     FilmeService.obtenhaFilme(id, (erro, filme) => {
         if (erro)
-            return res.status(404).send("Ocorreu um problema ao tentar localizar um filme.");
+            return res.status(404).send("Ocorreu um problema ao tentar localizar um filme." + erro);
         res.status(200).send(filme);
     });
 };
@@ -35,16 +34,25 @@ exports.create = (req, res, next) => {
 
     FilmeService.addFilme(filmeObj, (erro, filme) =>{
         if (erro)
-            return res.status(500).send("Ocorreu um erro ao tentar adicionar o Filme no banco de dados.");
+            return res.status(500).send("Ocorreu um erro ao tentar adicionar o Filme no banco de dados." + errp);
         res.status(200).send(`${filme.titulo} adicionado com sucesso!`);
     })
 };
+
+exports.update = (req, res, next) =>{
+    const id = req.params.id;
+    FilmeService.atualizeFilme(id, (erro) =>{
+        if (erro)
+            return res.status(500).send("Ocorreu um erro ao tentar atualizar o Filme do banco de dados." + erro);
+        res.status(200).send("Filme atualizado com sucesso!");
+    })
+}
 
 exports.delete = (req, res, next) =>{
     const id = req.params.id;
     FilmeService.removaFilme(id, (erro) =>{
         if (erro)
-            return res.status(500).send("Ocorreu um erro ao tentar remover o Filme do banco de dados."+erro);
+            return res.status(500).send("Ocorreu um erro ao tentar remover o Filme do banco de dados." + erro);
         res.status(200).send("Filme removido com sucesso!");
     })
 }

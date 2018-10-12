@@ -14,6 +14,10 @@ module.exports = class FilmeService {
         Filme.findById(id, callback)
     }
 
+    static atualizeFilme(id, callback){
+        Filme.findOneAndUpdate(id, callback)
+    }
+
     static removaFilme(id, callback){
         Filme.deleteOne(id, callback)
     }

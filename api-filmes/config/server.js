@@ -2,7 +2,6 @@ const app = require('../src/app')
 const http = require('http')
 const debug = require('debug')('nodestr:server');
 
-
 const porta = normalizePort(process.env.PORT || 3000);
 
 //seta a porta para o servidor
@@ -11,11 +10,12 @@ app.set('port', porta)
 //cria o servidor e a constante para a ciração das rotas pelo express
 const server = http.createServer(app);
 
-
-server.listen(porta);
+server.listen(porta, function(){
+    console.log(`Api-Filmes executando na porta ${porta}!`);
+});
 server.on('error', onError);
 server.on('listening', onListening);
-console.log('API rodando na porta '+ porta);
+
 
 // const bodyParser = require('body-parser')
 // const queryParser = require('express-query-int')
@@ -75,4 +75,5 @@ function onListening(){
         : 'port ' + addr.port;
     debug('Listening on '+ bind);
 }
+
 //module.exports = server

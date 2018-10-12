@@ -6,7 +6,7 @@ const router = express.Router();
 //criar primeira rota como default
 router.get('/', (req, res, next) => {
     res.status(200).send({
-        title: 'Node Store API',
+        title: 'Node Filmes API',
         version: "0.0.1"
     });
 })
