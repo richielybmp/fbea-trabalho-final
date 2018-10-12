@@ -24,5 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 }
 
+// Exemplo de captura do retorno da API Node
+$url = "http://localhost:3000/api/filmes";
+$response =  $ingresso_controller->getFilmes($url);
+echo json_encode($response);
+
 
 ?>
