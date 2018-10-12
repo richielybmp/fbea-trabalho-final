@@ -1,5 +1,7 @@
 <?php
 
+include_once '../controllers/sessao_controller.php';
+
 class IngressoController {
 	
 	private $conn;
@@ -52,33 +54,23 @@ class IngressoController {
 		}
 		return $ingressos;
 	}
-
-    public function getFilmes($url){
-        require '../vendor/autoload.php';
-
-        $myClient = new GuzzleHttp\Client([
-            'headers' => ['user-Agent' => 'MyReader']
-        ]);
-
-        $response = $myClient->request('GET', $url);
-
-        if($response->getStatusCode() == 200){
-            if($response->hasHeader('content-length')){
-                $contentLength = $response->getHeader('content-length')[0];
-                //echo 'Dados '.$contentLength;
-
-                //resposta da API
-                $coisas = json_decode($response->getBody());
-
-                return $coisas;
-            }
-
-
-        }
-
-    }
-
-
+	
+	public function count_by_filme($id_filme){
+		$total=0;
+		if($statement = $this->conn->prepare('SELECT COUNT(1) as total
+												FROM '.$this->table_name.'
+												INNER JOIN '.SessaoController::$table_name.' 
+												ON '.$this->table_name.'.id_sessao = '.SessaoController::$table_name.'.id
+												WHERE '.SessaoController::$table_name.'.id_filme = :id_filme')) {
+			$statement->bindValue(':id_filme', $id_filme);
+			$result = $statement->execute();
+			$i=0;
+			while($arr=$result->fetchArray(SQLITE3_ASSOC)) {
+				$total = $arr["total"];
+			}
+		}
+		return $total;
+	}
 }
 
 ?>

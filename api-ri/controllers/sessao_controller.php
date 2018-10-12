@@ -2,7 +2,7 @@
 
 class SessaoController {
 	private $conn;
-	private $table_name = "sessoes";
+	public static $table_name = "sessoes";
 	
 	public function __construct($db){
 		$this->conn = $db->conn;

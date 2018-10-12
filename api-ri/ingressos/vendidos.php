@@ -17,11 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$ingressos = $ingresso_controller->create_all($dados);
 	echo json_encode($ingressos);
 } else if($_SERVER['REQUEST_METHOD'] === 'GET') {
-	if(isset($_GET['sessao']) && !empty($_GET['sessao'])) {
-		echo json_encode($ingresso_controller->find_by_sessao($_GET['sessao']));
+	if(isset($_GET['id_filme']) && !empty($_GET['id_filme'])) {
+		echo '{"total" : '.$ingresso_controller->count_by_filme($_GET["id_filme"]).'}';
 	} else {
-		echo '{"mensagem" : "?sessao = x"}';
+		echo '{"mensagem" : "?id_filme = x"}';
 	}
 }
+
 
 ?>

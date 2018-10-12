@@ -1,15 +1,19 @@
 {
-	"variables": [],
 	"info": {
+		"_postman_id": "011d9a41-9034-4601-b9b3-6d5ebf1b8c00",
 		"name": "api-ri",
-		"_postman_id": "83daba99-f45d-4870-78c4-326712381264",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "GET SESSOES",
 			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost/api-ri/sessoes?filme=1",
 					"protocol": "http",
@@ -23,23 +27,22 @@
 					"query": [
 						{
 							"key": "filme",
-							"value": "1",
-							"equals": true,
-							"description": ""
+							"value": "1"
 						}
-					],
-					"variable": []
-				},
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": ""
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "GET INGRESSOS",
 			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost/api-ri/ingressos?sessao=1",
 					"protocol": "http",
@@ -53,57 +56,106 @@
 					"query": [
 						{
 							"key": "sessao",
-							"value": "1",
-							"equals": true,
-							"description": ""
+							"value": "1"
 						}
-					],
-					"variable": []
-				},
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": ""
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "CREATE INGRESSOS",
 			"request": {
-				"url": "http://localhost/api-ri/ingressos/",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "[\n    {\n        \"id_sessao\": 1,\n        \"valor\": 24.8,\n        \"assento\": \"D1\"\n    },\n    {\n        \"id_sessao\": 1,\n        \"valor\": 12.4,\n        \"assento\": \"D2\"\n    }\n]"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost/api-ri/ingressos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api-ri",
+						"ingressos",
+						""
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "CREATE SESSAO",
 			"request": {
-				"url": "http://localhost/api-ri/sessoes",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "    {\n        \"id_filme\": 1,\n        \"horario\": \"2018-10-03 21:00:00\",\n        \"sala\": \"1\",\n        \"cinema\": \"Cinemark - Flamboyant\",\n        \"total_ingressos\": 80\n    }"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost/api-ri/sessoes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api-ri",
+						"sessoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET SOMA INGRESSOS PELO FILME",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost/api-ri/ingressos/vendidos?id_filme=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api-ri",
+						"ingressos",
+						"vendidos"
+					],
+					"query": [
+						{
+							"key": "id_filme",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET FILMES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		}
