@@ -9,7 +9,7 @@ class SessaoController {
 	}
 	
 	public function create($sessao){
-		if($statement = $this->conn->prepare('INSERT INTO "'.$this->table_name.'" ("id_filme", "horario", "sala", "cinema", "total_ingressos")
+		if($statement = $this->conn->prepare('INSERT INTO "'.SessaoController::$table_name.'" ("id_filme", "horario", "sala", "cinema", "total_ingressos")
 			VALUES (:id_filme, :horario, :sala, :cinema, :total_ingressos)')){
 				$statement->bindValue(':id_filme', $sessao->id_filme);
 				$statement->bindValue(':horario', $sessao->horario);
@@ -27,7 +27,7 @@ class SessaoController {
 	
 	public function find_by_filme($id_filme){
 		$sessoes=array();
-		if($statement = $this->conn->prepare('SELECT id, id_filme, horario, sala, cinema, total_ingressos FROM "'.$this->table_name.'" WHERE id_filme = :id_filme')) {
+		if($statement = $this->conn->prepare('SELECT id, id_filme, horario, sala, cinema, total_ingressos FROM "'.SessaoController::$table_name.'" WHERE id_filme = :id_filme')) {
 			$statement->bindValue(':id_filme', $id_filme);
 			$result = $statement->execute();
 			$i=0;
