@@ -23,16 +23,8 @@ exports.find = (req, res, next) => {
 
 // POST - Criar novo registro filme no banco de dados
 exports.create = (req, res, next) => {
-    const filmeObj =
-        {
-            titulo: req.body.titulo,
-            diretor: req.body.diretor,
-            genero: req.body.genero,
-            ano: req.body.ano
-            //reviews - inicialmente o filme ao ser criado não possui nenhum comentário
-        };
-
-    FilmeService.addFilme(filmeObj, (erro, filme) =>{
+    // passando o req.body, temos os dados do formulário em forma de objeto formatado pois estamos utilizando o body-parser.
+    FilmeService.addFilme(req.body, (erro, filme) =>{
         if (erro)
             return res.status(500).send("Ocorreu um erro ao tentar adicionar o Filme no banco de dados." + erro);
         res.status(200).send(`${filme.titulo} adicionado com sucesso!`);
@@ -59,10 +51,8 @@ exports.delete = (req, res, next) =>{
 
 exports.inserirReview = (req, res, next) => {
     const id = req.params.id;
-    const review = req.body.review;
-    const user = req.body.user;
 
-    FilmeService.addReview(id, review, user, (erro) =>{
+    FilmeService.addReview(id, req.body, (erro) =>{
         if(erro)
             return res.status(500).send("Ocorreu um erro ao tentar adicionar um review no filme de id " + id + ". Erro:\n " + erro);
         res.status(200).send("Review adicionado com sucesso!");
