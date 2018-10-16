@@ -14,4 +14,4 @@ $response =  $filme_controller->getFilmes($url);
 echo json_encode($response);
 
 
-?>
+?>  

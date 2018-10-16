@@ -7,7 +7,5 @@ const ReviewSchema = new mongoose.Schema({
     data: Date
 });
 
-module.exports = ReviewSchema;
-
-// mongoose.model('Review', ReviewSchema);
-// module.exports = mongoose.model('Review');
+ mongoose.model('Review', ReviewSchema);
+ module.exports = mongoose.model('Review');

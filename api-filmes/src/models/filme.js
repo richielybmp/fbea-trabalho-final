@@ -6,7 +6,7 @@ const FilmeSchema = new mongoose.Schema({
   diretor: String,
   genero: String,
   ano: Date,
-  reviews: [ReviewSchema]
+  reviews: [ReviewSchema.schema]
 });
 
 mongoose.model('Filme', FilmeSchema);
