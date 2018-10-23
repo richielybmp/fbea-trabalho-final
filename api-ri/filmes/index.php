@@ -20,8 +20,11 @@ $response =  $filme_controller->getFilmes($url);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Filmes e Reviews</title>
     <style>
+        body{
+            background-color: rgb(252, 252, 252);
+        }
         .align-button{
             position: absolute;
             right: 20px;
@@ -38,6 +41,11 @@ $response =  $filme_controller->getFilmes($url);
         .titulo-page{
             display: flex;
             margin: auto auto;
+        }
+        .line{
+            width: 100%;
+            height: 1.5px;
+            background-color: #F56600;
         }
     </style>
 </head>
@@ -70,10 +78,12 @@ $response =  $filme_controller->getFilmes($url);
                     <p class="card-text">Gênero: <?php echo $filmes->genero ?></p>
                     <p class="card-text">Ano: <?php echo $filmes->ano ?></p>
                     <h3 class="card-title">Reviews</h3>
+
                     <div class="container">
                     <?php
                         foreach ($filmes->reviews as $review) {
                             ?>
+                            <h1 class="line"></h1>
                             <p class="font-weight-bold "><?php echo $review->usuario ?></p>
                             <div class="container">
                                 <p>Comentario: <?php echo $review->comentario ?></p>
