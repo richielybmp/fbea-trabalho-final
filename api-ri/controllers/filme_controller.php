@@ -26,6 +26,15 @@ class FilmeController {
         }
 
     }
+
+    public function filmeReview($url, $form_dados){
+        $client = new GuzzleHttp\Client([
+            'headers' => ['user-Agent' => 'MyReader']
+        ]);
+        $response = $client->request('POST', $url, $form_dados);
+        return ($response);
+    }
+
 }
 
 ?>

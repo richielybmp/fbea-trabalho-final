@@ -7,7 +7,7 @@ const controller = require('../controllers/filme-controller');
 // GET - Lista todos os filmes existentes no banco de dados.
 router.get('/', controller.getAll);
 
-// GET - Lista todos os filmes existentes no banco de dados.
+// GET - retorna o filme de determinado ID.
 router.get('/:id', controller.find);
 
 // POST - Criar novo registro filme no banco de dados.
