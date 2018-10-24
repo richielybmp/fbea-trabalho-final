@@ -21,8 +21,9 @@
     "express": "^4.16.3",
     "express-query-int": "^3.0.0",
     "express-register-routes": "^1.0.2",
+    "http": "0.0.0",
     "mongoose": "^5.3.1",
-    "http": "0.0.0"
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"

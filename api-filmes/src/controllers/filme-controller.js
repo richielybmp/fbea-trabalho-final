@@ -1,6 +1,7 @@
 // FilmeController.js
 
 var FilmeService = require('../../services/filmeService')
+var request = require("request");
 
 // GET - Lista todos os filmes existentes no banco de dados.
 exports.getAll = (req, res, next) => {
@@ -57,4 +58,22 @@ exports.inserirReview = (req, res, next) => {
             return res.status(500).send("Ocorreu um erro ao tentar adicionar um review no filme de id " + id + ". Erro:\n " + erro);
         res.status(200).send("Review adicionado com sucesso!");
     });
+};
+
+exports.getTotalVendas = (req, res, next) =>{
+    
+    var url = 'http://localhost:7777/api-ri/ingressos/vendidos?id_filme=' + req.params.id;
+    
+    var options = {
+        url: url, 
+        json: true 
+    };
+    
+    request(url, function (error, response, body) {
+        if (!error && response.statusCode === 200) {
+            console.log(body);
+            res.status(200).json(JSON.parse(body));
+        }
+    })
+
 };
