@@ -4,7 +4,8 @@
   "description": "Api em NodeJs que disponibiliza uma listagem de filmes e reviews.",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "start": "node index.js"
   },
   "keywords": [
     "nodejs",

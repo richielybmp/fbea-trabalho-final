@@ -61,19 +61,11 @@ exports.inserirReview = (req, res, next) => {
 };
 
 exports.getTotalVendas = (req, res, next) =>{
-    
     var url = 'http://localhost:7777/api-ri/ingressos/vendidos?id_filme=' + req.params.id;
-    
-    var options = {
-        url: url, 
-        json: true 
-    };
     
     request(url, function (error, response, body) {
         if (!error && response.statusCode === 200) {
-            console.log(body);
             res.status(200).json(JSON.parse(body));
         }
     })
-
 };

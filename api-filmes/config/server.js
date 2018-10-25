@@ -16,25 +16,6 @@ server.listen(porta, function(){
 server.on('error', onError);
 server.on('listening', onListening);
 
-
-// const bodyParser = require('body-parser')
-// const queryParser = require('express-query-int')
-// const express = require('express')
-// const server = express()
-
-//server.use(bodyParser.urlencoded({ extended: true }))
-//server.use(bodyParser.json())
-//server.use(queryParser())
-
-// server.get('/', function(req, res) {
-//     res.send('Api Filmes');
-// });
-//
-// server.listen(porta, function(){
-//     console.log(`Api-Filmes executando na porta ${porta}!`)
-// })
-
-
 function normalizePort(val){
     const port = parseInt(val, 10);
     if(isNaN(port)){
@@ -75,5 +56,3 @@ function onListening(){
         : 'port ' + addr.port;
     debug('Listening on '+ bind);
 }
-
-//module.exports = server
