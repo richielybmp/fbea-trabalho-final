@@ -50,3 +50,29 @@ Se tudo ocorrer perfeitamente, será mostrado o log no console:
 Api-Filmes executando na porta 3000!
 Conectado no banco de dados db_apiFilmes
 ```
+
+# Projeto `api-ri`
+
+## Requerimentos
+- Apache 2.4
+- PHP 7.2.9
+- SQLite3
+- Composer
+
+## Pacotes utilizados
+- guzzlehttp
+
+### Instalando dependências
+Através de um terminal, abra o diretório do projeto api-ri e utilize o comando:
+<br /> `composer install` <br /><br />
+Serão instalados todos os módulos listados no diretório `vendor`.
+
+## Executanto o projeto api-ri
+Copie e cole o diretório api-ri para a pasta raiz do seu servidor  e.g `/var/www/html` 
+
+## Acessando o serviço
+A porta que o serviço estará executando será a porta padrão do apache : `80`.
+Acesse o endereço a seguir através de alguma ferramenta do estilo [Postman](https://www.getpostman.com/) ou [Swagger Inspector](https://inspector.swagger.io/builder) :
+<br /> `http://localhost:80/api-ri/filmes` <br />
+
+Se tudo ocorrer perfeitamente, serão listados alguns filmes no formato JSON.
