@@ -8,14 +8,16 @@ Como mencionado, existem dois microserviços.
 O primeiro, responsável por manter um catálogo de filmes e reviews foi desenvolvido utilizando `NodeJs` como back-end e o banco de dados `MongoDb`.
 O segundo serviço é responsável por disponibilizar sessões de cinema para apresentação dos filmes, venda de ingressos e postagem de comentários e críticas sobre um determinado filme. No desenvolvimento desse projeto, utilizamos o `PHP 7.2.9` e o `SQLite3`
 
-### Acessando a api-filmes pelo Heroku
-
-[Heroku - Api-filmes](https://apifilmes.herokuapp.com/api/filmes/)
-
 ### Banco de dados online
 
 Para facilitar o deploy e o acesso à api-filmes, optamos por utilizar o [Mlab](https://mlab.com/home). Com ele, criamos um banco de dados MongoDb que nos permitiu integrar facilmente com nossa aplicação pela uri:
 <br />  `mongodb://admin:dbadmin1@ds115758.mlab.com:15758/db_apifilmes` <br /> 
+
+### Acessando a api-filmes pelo Heroku
+
+[Heroku - Api-filmes - GET Filmes](https://apifilmes.herokuapp.com/api/filmes/)
+<br />
+Para acessar as outras rotas disponíveis, veja a documentação pelo Swagger logo a seguir.
 
 ### Documentação e testes pelo Swagger
 
