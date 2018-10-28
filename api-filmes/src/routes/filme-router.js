@@ -10,6 +10,7 @@ router.get('/', controller.getAll);
 // GET - retorna o filme de determinado ID.
 router.get('/:id', controller.find);
 
+// GET - retorna a quantidade de ingressos vendidos para um determinado filme.
 router.get('/bilheteriaTotal/:id', controller.getTotalVendas);
 
 // POST - Criar novo registro filme no banco de dados.
@@ -23,6 +24,5 @@ router.delete('/:id', controller.delete);
 
 // POST - Adicionar um review ao filme específico.
 router.post("/novoReview/:id", controller.inserirReview);
-
 
 module.exports = router;
