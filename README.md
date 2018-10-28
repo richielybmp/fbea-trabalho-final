@@ -71,6 +71,9 @@ Conectado no banco de dados db_apiFilmes
 
 A listagem dos filmes é apresentada através do comsumo da api-filmes. Pela api-ri, disponibilizamos a opção de realizar comentários/revivews para os filmes. Esses dados serão salvos no banco de dados da api-filmes que irá servir a api-ri. 
 
+### Listagem de filmes 
+[Heroku - Api-ri - Listagem dos filmes](http://apireviewingressos.herokuapp.com/filmes/)
+
 ### Documentação e testes pelo Swagger
 
 Aqui disponibilizamos todas as rotas disponíveis pela `api-ri`:
