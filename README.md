@@ -77,7 +77,7 @@ A listagem dos filmes é apresentada através do comsumo da api-filmes. Pela api
 ### Documentação e testes pelo Swagger
 
 Aqui disponibilizamos todas as rotas disponíveis pela `api-ri`:
-<br />[Swagger - Api-filmes - Wiki e testes das rotas.]()
+<br />[Swagger - Api-ri - Wiki e testes das rotas.]()
 
 ## Requerimentos
 - Apache 2.4
