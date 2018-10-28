@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-const dbName = 'db_apiFilmes'
+const dbName = 'db_apifilmes'
 
-mongoose.connect('mongodb://localhost/'+ dbName, { useNewUrlParser: true })
+mongoose.connect('mongodb://admin:dbadmin1@ds115758.mlab.com:15758/db_apifilmes', { useNewUrlParser: true })
 
 const db = mongoose.connection;
 
